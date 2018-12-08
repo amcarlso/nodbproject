@@ -18,6 +18,7 @@ class App extends Component {
 
     this.handleAddCountry = this.handleAddCountry.bind(this)
     this.handleUserInput = this.handleUserInput.bind(this)
+    this.handleEdit = this.handleEdit.bind(this)
   }
   componentDidMount(){
     axios.get('/api/countries')
@@ -42,12 +43,33 @@ handleUserInput(value){
       })
     })
   }
+  handleDelete(id){
+    axios.delete(`/api/countries/${id}`)
+    .then(res => {
+      this.setState({
+        posts:res.data
+      })
+    })
+  }
+  handleInputToggle(){
+
+  }
+  handleEdit(id, country){
+    // console.log(id, country);
+    axios.put(`/api/countries/${id}`, {country: country})
+    .then(res => {
+      console.log(res)
+      this.setState({
+        posts:res.data
+      })
+    })
+  }
 
 
   
   render() {
     const displayCountries = this.state.posts.map((country, index) =>{
-      return <Post key={index} id={country.id} country={country.country} />
+      return <Post key={index} id={country.id} country={country.country} delete={this.handleDelete} edit={this.handleEdit} />
     })
     return (
       <div className="App">

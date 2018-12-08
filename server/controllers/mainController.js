@@ -1,5 +1,14 @@
-const countryList = [];
-let id = 1;
+const countryList = [
+  {
+    country: "Spain",
+    id:1
+  },
+  {
+    country: "Germany",
+    id:2
+  }
+];
+let id = 3;
 
 module.exports = {
   getAll:(req, res) => {
@@ -16,22 +25,27 @@ module.exports = {
     res.status(200).send(countryList)
   },
   editCountry:(req, res) => {
-
-  },
-  deleteCountry:(req, res) => {
-    // console.log("deleted!")
-    let index = countryList.findIndex((county) => {
-      if(country.id === Number(req.params.id)) {
+    console.log(req.body, req.params.id)
+    const {country} = req.body
+    const updateId = req.params.id;
+    const countryIndex = countryList.findIndex(country => {
+      if( country.id == updateId) {
         return true
       } else {
         return false
       }
     })
-      if(index !== -1) {
-        countryList.splice(index, 1)
-      }
-    
+    console.log(countryIndex)
+    countryList [countryIndex] = {
+      id: updateId,
+      country: country
+    }
     res.status(200).send(countryList)
+  },
+  deleteCountry:(req, res) => {
+    const deleteID = req.params.id;
+    countryIndex = countryList.findIndex(country => countryList.id == deleteID);
+    countryList.splice(countryIndex, 1);
+    res.status(200).send(countryList); 
   }
-
 }

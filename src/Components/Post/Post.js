@@ -1,8 +1,5 @@
-import React, {
-  Component
-} from 'react'
-import axios from 'axios';
-import AddCountry from './../AddCountry/AddCountry'
+import React, { Component } from 'react'
+import './Post.css'
 
 
 class Post extends Component {
@@ -14,7 +11,7 @@ class Post extends Component {
     }
   }
   handleInputToggle() {
-    if (this.state.edit == true) {
+    if (this.state.edit === true) {
       this.setState({
         edit: false
       })
@@ -35,12 +32,13 @@ class Post extends Component {
         this.state.edit ? < input onChange = {
           (e) => this.handleInputChanger(e.target.value)
         }
-        /> : <p>{this.props.country}</p >
-      } 
-      <button onClick = {
-        () => this.props.delete(this.props.id)
-      } > Delete </button> {
-        this.state.edit ? < button onClick = {
+        /> : <p>{this.props.country}</p>
+        } 
+        <button onClick = {
+          () => this.props.delete(this.props.id)
+        }> Delete 
+      </button> 
+      {this.state.edit ? < button onClick = {
           () => {
             this.props.edit(this.props.id, this.state.input)
             this.handleInputToggle()

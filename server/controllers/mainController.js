@@ -1,14 +1,5 @@
-const countryList = [
-  {
-    country: "Spain",
-    id:1
-  },
-  {
-    country: "Germany",
-    id:2
-  }
-];
-let id = 3;
+const countryList = [];
+let id = 1;
 
 module.exports = {
   getAll:(req, res) => {
@@ -16,8 +7,8 @@ module.exports = {
   },
   addCountry:(req, res) => {
     let newCountry = {
-      id: id,
-      country: req.body.text
+      country: req.body.text,
+      id: id
     }
     countryList.push(newCountry)
     id++
@@ -35,17 +26,17 @@ module.exports = {
         return false
       }
     })
-    console.log(countryIndex)
+    // console.log(countryIndex)
     countryList [countryIndex] = {
-      id: updateId,
-      country: country
+      country: country,
+      id: updateId
     }
     res.status(200).send(countryList)
   },
   deleteCountry:(req, res) => {
     const deleteID = req.params.id;
-    countryIndex = countryList.findIndex(country => countryList.id == deleteID);
-    countryList.splice(countryIndex, 1);
+    let countryIndex = countryList.findIndex(country => countryList.id  == deleteID);
+    countryList.splice(countryList[countryIndex], 1);
     res.status(200).send(countryList); 
   }
 }

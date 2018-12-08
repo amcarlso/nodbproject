@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Header from './Components/Header/Header'
 import Post from './Components/Post/Post'
 import axios from 'axios';
+
 
 
 class App extends Component {
@@ -19,6 +19,7 @@ class App extends Component {
     this.handleAddCountry = this.handleAddCountry.bind(this)
     this.handleUserInput = this.handleUserInput.bind(this)
     this.handleEdit = this.handleEdit.bind(this)
+    this.handleDelete = this.handleDelete.bind(this)
   }
   componentDidMount(){
     axios.get('/api/countries')
@@ -29,21 +30,20 @@ class App extends Component {
       })
     })
   }
-handleUserInput(value){
-  this.setState({
+  handleUserInput(value){
+    this.setState({
     input: value
-  })
-}
-
+    })
+  }
   handleAddCountry(){
     axios.post('/api/country', {text: this.state.input})
     .then(res => {
       this.setState({
-        posts: res.data
+      posts: res.data
       })
     })
   }
-  handleDelete(id){
+  handleDelete(id, country){
     axios.delete(`/api/countries/${id}`)
     .then(res => {
       this.setState({
@@ -51,11 +51,9 @@ handleUserInput(value){
       })
     })
   }
-  handleInputToggle(){
-
-  }
+  
   handleEdit(id, country){
-    // console.log(id, country);
+    console.log(id, country);
     axios.put(`/api/countries/${id}`, {country: country})
     .then(res => {
       console.log(res)
@@ -73,7 +71,7 @@ handleUserInput(value){
     })
     return (
       <div className="App">
-         <Header />
+         <Header id="header"/>
          
          <div>
             <input onChange= {(e) => this.handleUserInput(e.target.value)}/>

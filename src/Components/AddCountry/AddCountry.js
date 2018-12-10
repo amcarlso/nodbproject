@@ -5,23 +5,19 @@ class AddCountry extends Component {
     super(props)
 
     this.state = {
-      userInput: ''
+      input: ''
     }
 
-    this.handleChange = this.handleChange.bind(this)
+    
   }
-  handleChange(event){
-    this.setState({
-      userInput:'event'
-    })
-  }
+  
   
   render(){
     return(
       <div>
-        <input onChange={(e) => this.handleChange(e.target.value)}/>
-        <button>Add Country</button>
-      </div>
+          <input onChange= {(e) => this.props.handleUserInputFn(e.target.value)}/>
+          <button onClick= {this.props.handleAddCountryFn} >Add Country</button> 
+        </div>
     )
   }
 }

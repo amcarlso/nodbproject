@@ -3,6 +3,7 @@ import './App.css';
 import Header from './Components/Header/Header'
 import Post from './Components/Post/Post'
 import axios from 'axios';
+import AddCountry from './Components/AddCountry/AddCountry';
 
 
 
@@ -72,14 +73,14 @@ class App extends Component {
     })
     return (
       <div className="App">
-         <Header id="header"/>
-         
-         <div>
-            <input onChange= {(e) => this.handleUserInput(e.target.value)}/>
-            <button onClick= {this.handleAddCountry} >Add Country</button>
-            <div>
-              {displayCountries}
-            </div>
+        <Header id="header"/>
+        <AddCountry 
+          handleUserInputFn={this.handleUserInput} 
+          handleAddCountryFn={this.handleAddCountry}
+        />
+        
+          <div>
+          {displayCountries}
          </div>
       </div>
     );

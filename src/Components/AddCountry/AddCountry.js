@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import './AddCountry.css'
 
 class AddCountry extends Component {
   constructor(props){
@@ -14,9 +15,15 @@ class AddCountry extends Component {
   
   render(){
     return(
-      <div>
-          <input onChange= {(e) => this.props.handleUserInputFn(e.target.value)}/>
-          <button onClick= {this.props.handleAddCountryFn} >Add Country</button> 
+      <div className= 'input-box'>
+        <div id='userInput-style'>
+          <div>
+            <input value={this.props.input} onChange={(e) => this.props.handleUserInputFn(e.target.value)}/>
+          </div>
+          <div>
+            <button onClick= {this.props.handleAddCountryFn} >Add Country</button> 
+          </div>
+        </div>
         </div>
     )
   }

@@ -1,27 +1,35 @@
-#header {
-  background-color: rgb(56, 56, 56);
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  height: 4755px;
-}
 
- h1 {
+
+  #title {
+  font-family: 'Handlee', cursive, 'Permanent Marker', cursive;
   font-size: 3em;
   display: block;
   text-align: center;
-  margin-top: -30px;
-  margin-bottom: 15px;
-  background-color: rgb(56, 56, 56);
-  color: rgb(253, 45, 45);
+  background-color: #d9e4d8;
+  color: rgb(0, 0, 0);
+  width: 70vw;
   height: 175px;
   line-height: 175px;
+  margin: 0 auto;
+  font-weight: bolder;
+  opacity: 0.50;
+  border-radius: 20px;
+  border: 2px rgb(214, 175, 125) solid;
 }
 
 #country-link {
-  display: block;
+  font-family: 'Handlee', cursive;
+  display: inline-block;
   position:relative;
   bottom: 40px;
   left: 10px;
-  
-  color: rgb(253, 45, 45);
+  color: rgb(0, 0, 0);
   text-decoration: none;
+  padding-left: 15vw;
+  font-weight: bolder;
+  opacity: 0.6;
+}
+
+a:hover {
+  color: white;
 }

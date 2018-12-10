@@ -27,10 +27,10 @@ class Post extends Component {
     })
   }
 
-  
+
   render() {
     return ( 
-      <div> {
+      <div className='each-post'> {
         this.state.edit ? < input onChange = {
           (e) => this.handleInputChanger(e.target.value)
         }

@@ -1,8 +1,17 @@
-div div {
-  background-color: rgb(126, 126, 126);
-  letter-spacing: 0.15em;
-  padding-bottom: 15px;
-  padding-top: 10px;
-  color: white;
-  
+.post-box {
+  background-color: #d9e4d8;
+  letter-spacing: 0.10em;
+  color: rgb(0, 0, 0);
+  height: 50vh;
+  width: 45vw;
+  margin: 0 auto;
+  opacity: 0.85;
+  font-family: 'Handlee', cursive, 'Permanent Marker', cursive;
+  border-radius: 40px;
+  border: 2px rgb(214, 175, 125) solid;
+}
+
+.each-post {
+  padding-left: 15px;
+  padding-top: 7px;
 }

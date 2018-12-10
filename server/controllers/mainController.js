@@ -17,7 +17,6 @@ module.exports = {
   },
   editCountry:(req, res) => {
     console.log(req.body, req.params.id)
-    const {country} = req.body
     const updateId = Number(req.params.id);
     const countryIndex = countryList.findIndex(country => {
       if( country.id == updateId) {
@@ -28,14 +27,15 @@ module.exports = {
     })
     // console.log(countryIndex)
     countryList [countryIndex] = {
-      country: country,
+      country: req.body.country,
       id: updateId
     }
     res.status(200).send(countryList)
   },
   deleteCountry:(req, res) => {
     const deleteID = req.params.id;
-    let countryIndex = countryList.findIndex(country => country.id  == deleteID);
+    let countryIndex = countryList.findIndex(country =>
+      country.id  == deleteID);
     console.log(countryIndex)
     console.log(countryList)
     countryList.splice(countryIndex, 1);

@@ -75,11 +75,12 @@ class App extends Component {
         <AddCountry 
           handleUserInputFn={this.handleUserInput} 
           handleAddCountryFn={this.handleAddCountry}
+          input={this.state.input}
         />
         
-          <div>
-          <h4 id='postStyle'>{displayCountries}</h4>
-         </div>
+          <div className='post-box'>
+          {displayCountries}
+          </div>
       </div>
     );
   }

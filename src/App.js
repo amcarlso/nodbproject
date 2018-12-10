@@ -41,6 +41,7 @@ class App extends Component {
       this.setState({
       posts: res.data
       })
+      console.log(res)
     })
   }
   handleDelete(id, country){
@@ -53,10 +54,10 @@ class App extends Component {
   }
   
   handleEdit(id, country){
-    console.log(id, country);
+    // console.log(id, country);
     axios.put(`/api/countries/${id}`, {country: country})
     .then(res => {
-      console.log(res)
+      console.log(res.data)
       this.setState({
         posts:res.data
       })
@@ -76,7 +77,9 @@ class App extends Component {
          <div>
             <input onChange= {(e) => this.handleUserInput(e.target.value)}/>
             <button onClick= {this.handleAddCountry} >Add Country</button>
-           {displayCountries}
+            <div>
+              {displayCountries}
+            </div>
          </div>
       </div>
     );

@@ -4,7 +4,7 @@
   height: 4755px;
 }
 
-h1 {
+ h1 {
   font-size: 3em;
   display: block;
   text-align: center;
@@ -14,4 +14,13 @@ h1 {
   color: rgb(253, 45, 45);
   height: 175px;
   line-height: 175px;
+}
+
+#country-link {
+  display: block;
+  position:fixed;
+  top: 10px;
+  right: 10px;
+  color: rgb(253, 45, 45);
+  text-decoration: none;
 }

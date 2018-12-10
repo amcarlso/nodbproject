@@ -6,7 +6,6 @@ import axios from 'axios';
 import AddCountry from './Components/AddCountry/AddCountry';
 
 
-
 class App extends Component {
   constructor(props){
     super(props)
@@ -27,7 +26,8 @@ class App extends Component {
     .then(res => {
       // console.log(res.data)
       this.setState({
-        posts: res.data
+        posts: res.data,
+        input: ''
       })
     })
   }
@@ -40,7 +40,8 @@ class App extends Component {
     axios.post('/api/country', {text: this.state.input})
     .then(res => {
       this.setState({
-      posts: res.data
+      posts: res.data,
+      input: ''
       })
       console.log(res)
     })
@@ -49,7 +50,7 @@ class App extends Component {
     axios.delete(`/api/countries/${id}`)
     .then(res => {
       this.setState({
-        posts:res.data
+        posts: res.data
       })
     })
   }
@@ -80,7 +81,7 @@ class App extends Component {
         />
         
           <div>
-          {displayCountries}
+          <h4 id='postStyle'>{displayCountries}</h4>
          </div>
       </div>
     );

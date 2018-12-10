@@ -54,3 +54,7 @@ body{
 	background-color: rgb(126, 126, 126);
 	font-size: 1.2em;
 }
+
+#postStyle {
+	border: 1px white solid;
+}

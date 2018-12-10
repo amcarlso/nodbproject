@@ -36,7 +36,7 @@ class Post extends Component {
         } 
         <button onClick = {
           () => this.props.delete(this.props.id)
-        }> Delete 
+        }> Let's Keep it Realistic 
       </button> 
       {this.state.edit ? < button onClick = {
           () => {

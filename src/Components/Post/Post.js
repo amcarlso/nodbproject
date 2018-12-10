@@ -26,6 +26,8 @@ class Post extends Component {
       input: value
     })
   }
+
+  
   render() {
     return ( 
       <div> {
@@ -37,11 +39,11 @@ class Post extends Component {
         <button onClick = {
           () => this.props.delete(this.props.id)
         }> Let's Keep it Realistic 
-      </button> 
-      {this.state.edit ? < button onClick = {
+        </button> 
+          {this.state.edit ? < button onClick = {
           () => {
-            this.props.edit(this.props.id, this.state.input)
-            this.handleInputToggle()
+          this.props.edit(this.props.id, this.state.input)
+          this.handleInputToggle()
           }
         } > Save </button> : <button onClick={() => this.handleInputToggle()}>Edit</button >
       }

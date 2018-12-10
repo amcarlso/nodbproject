@@ -18,9 +18,10 @@
 
 #country-link {
   display: block;
-  position:fixed;
-  top: 10px;
-  right: 10px;
+  position:relative;
+  bottom: 40px;
+  left: 10px;
+  
   color: rgb(253, 45, 45);
   text-decoration: none;
 }

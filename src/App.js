@@ -12,13 +12,15 @@ class App extends Component {
 
     this.state = {
       posts: [],
-      input: ''
+      input: '',
+      priceInput: ''
     }
 
     this.handleAddCountry = this.handleAddCountry.bind(this)
     this.handleUserInput = this.handleUserInput.bind(this)
     this.handleEdit = this.handleEdit.bind(this)
     this.handleDelete = this.handleDelete.bind(this)
+    this.handlePrice = this.handlePrice.bind(this)
   }
   componentDidMount(){
     axios.get('/api/countries')
@@ -26,7 +28,8 @@ class App extends Component {
       // console.log(res.data)
       this.setState({
         posts: res.data,
-        input: ''
+        input: '',
+        priceInput: '' 
       })
     })
   }
@@ -36,13 +39,14 @@ class App extends Component {
     })
   }
   handleAddCountry(){
-    axios.post('/api/country', {text: this.state.input})
+    axios.post('/api/country', {text: this.state.input, price: this.state.priceInput})
     .then(res => {
       this.setState({
       posts: res.data,
-      input: ''
+      input: '',
+      priceInput: ''
       })
-      console.log(res)
+      // console.log(res.data)
     })
   }
   handleDelete(id){
@@ -63,11 +67,19 @@ class App extends Component {
       })
     })
   }
+  handlePrice(cost){
+    this.setState({
+      priceInput: cost
+    })
+  }
 
   
   render() {
+    console.log(this.state.posts)
+    let total = 0;
     const displayCountries = this.state.posts.map((country, index) =>{
-      return <Post key={index} id={country.id} country={country.country} delete={this.handleDelete} edit={this.handleEdit} />
+      total += +country.price
+      return <Post key={index} id={country.id} country={country.country} delete={this.handleDelete} edit={this.handleEdit} price={country.price} />
     })
     return (
       <div className="App">
@@ -76,10 +88,16 @@ class App extends Component {
           handleUserInputFn={this.handleUserInput} 
           handleAddCountryFn={this.handleAddCountry}
           input={this.state.input}
+          handlePriceFn={this.handlePrice}
+          priceInput={this.state.priceInput}
         />
         
           <div className='post-box'>
           {displayCountries}
+            <div id='total-style'>
+              {`Total: ${total}`}
+            </div>
+          
           </div>
       </div>
     );

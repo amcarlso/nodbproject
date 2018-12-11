@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './Post.css'
+import SumTrips from 'react'
 
 
 class Post extends Component {
@@ -39,14 +40,16 @@ class Post extends Component {
         <button onClick = {
           () => this.props.delete(this.props.id)
         }> Let's Keep it Realistic 
-        </button> 
-          {this.state.edit ? < button onClick = {
+        </button>
+        <p>Cost: ${this.props.price}</p> 
+          {this.state.edit ? < button placeholder='change your mind?' onClick = {
           () => {
           this.props.edit(this.props.id, this.state.input)
           this.handleInputToggle()
           }
         } > Save </button> : <button onClick={() => this.handleInputToggle()}>Edit</button >
-      }
+        }
+        {/* <SumTrips /> */}
 
       </div>
     )

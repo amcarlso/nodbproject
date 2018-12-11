@@ -8,23 +8,27 @@ class AddCountry extends Component {
     this.state = {
       input: ''
     }
-
     
   }
   
   
+  
   render(){
+    console.log(this.props.priceInput)
     return(
       <div className= 'input-box'>
         <div id='userInput-style'>
           <div>
-            <input value={this.props.input} onChange={(e) => this.props.handleUserInputFn(e.target.value)}/>
+            <input placeholder='Add country name' value={this.props.input} onChange={(e) => this.props.handleUserInputFn(e.target.value)}/>
+          </div>
+          <div>
+            <input placeholder='Price...' value={this.props.priceInput} onChange={(e) => this.props.handlePriceFn(e.target.value)}/>
           </div>
           <div>
             <button onClick= {this.props.handleAddCountryFn} >Add Country</button> 
           </div>
         </div>
-        </div>
+      </div>
     )
   }
 }

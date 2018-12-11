@@ -8,7 +8,8 @@ module.exports = {
   addCountry:(req, res) => {
     let newCountry = {
       country: req.body.text,
-      id: id
+      id: id,
+      price: req.body.price
     }
     countryList.push(newCountry)
     id++

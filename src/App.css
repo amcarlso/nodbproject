@@ -66,3 +66,20 @@ button {
   color: white;
   border: 2px rgb(214, 175, 125) solid;
 }
+
+button:hover {
+  background-color: rgb(212, 129, 129);
+}
+
+button:active {
+  box-shadow: 4px 4px rgb(92, 92, 92);
+}
+
+input:hover {
+  background-color:rgb(216, 152, 152); 
+}
+
+input:active {
+  background-color: rgb(163, 163, 145);
+}
+

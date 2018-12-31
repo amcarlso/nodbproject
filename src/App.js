@@ -57,13 +57,14 @@ class App extends Component {
       })
     })
   }
-  handleEdit(id, country){
+  handleEdit(id, country, price){
     // console.log(id, country);
-    axios.put(`/api/countries/${id}`, {country: country})
+    axios.put(`/api/countries/${id}`, {country: country, price: price})
     .then(res => {
       console.log(res.data)
       this.setState({
-        posts:res.data
+        posts:res.data,
+        priceInput: ''
       })
     })
   }
@@ -85,20 +86,19 @@ class App extends Component {
       <div className="App">
         <Header id="header"/>
         <AddCountry 
-          handleUserInputFn={this.handleUserInput} 
           handleAddCountryFn={this.handleAddCountry}
+          handleUserInputFn={this.handleUserInput} 
           input={this.state.input}
           handlePriceFn={this.handlePrice}
           priceInput={this.state.priceInput}
         />
-        
-          <div className='post-box'>
+        <div className='post-box'>
           {displayCountries}
-            <div id='total-style'>
-              {`Total: ${total}`}
-            </div>
-          
+          <div id='total-style'>
+            {`Total: ${total}`}
           </div>
+        
+        </div>
       </div>
     );
   }

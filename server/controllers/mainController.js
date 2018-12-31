@@ -29,7 +29,8 @@ module.exports = {
     // console.log(countryIndex)
     countryList [countryIndex] = {
       country: req.body.country,
-      id: updateId
+      id: updateId,
+      price: req.body.price
     }
     res.status(200).send(countryList)
   },

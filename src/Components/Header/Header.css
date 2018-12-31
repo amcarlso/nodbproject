@@ -2,14 +2,14 @@
 
   #title {
   font-family: 'Handlee', cursive, 'Permanent Marker', cursive;
-  font-size: 3em;
+  font-size: 4rem;
   display: block;
   text-align: center;
   background-color: #d9e4d8;
   color: rgb(0, 0, 0);
   width: 70vw;
   height: 150px;
-  line-height: 175px;
+  line-height: 14.5vh;
   margin: 0 auto;
   font-weight: bolder;
   opacity: 0.50;
@@ -20,8 +20,8 @@
 #country-link {
   display: inline-block;
   position:relative;
-  bottom: 40px;
-  left: 10px;
+  bottom: 3.0vh;
+  left: 0.5vw;
   color: rgb(0, 0, 0);
   text-decoration: none;
   padding-left: 15vw;
